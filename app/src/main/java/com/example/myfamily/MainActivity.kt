@@ -17,18 +17,27 @@ class MainActivity : AppCompatActivity() {
         bottonBar.setOnItemSelectedListener {menuItem ->
 
 
-            if (menuItem.itemId==R.id.nav_guard){
-
-                inflateFragment(GuardFragment.newInstance())
-
-            }else if(menuItem.itemId==R.id.nav_home){
-
-                inflateFragment(HomeFragment.newInstance())
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    inflateFragment(HomeFragment.newInstance())
+                }
+                R.id.nav_Dashboard -> {
+                    inflateFragment(DashboardFragment.newInstance())
+                }
+                R.id.nav_guard -> {
+                    inflateFragment(GuardFragment.newInstance())
+                }
+                R.id.nav_profile -> {
+                    inflateFragment(ProfileFragment.newInstance())
+                }
             }
+
+
         
             true
 
         }
+        bottonBar.selectedItemId = R.id.nav_home
     }
 
     private fun inflateFragment(newInstance:Fragment) {
